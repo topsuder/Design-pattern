@@ -1,7 +1,3 @@
-# Design-pattern
-## 单例模式
->【懒汉模式】LazySingleton
-```java
 package fun.suder.designPattern.singleton;
 
 
@@ -25,16 +21,10 @@ public class LazySingleton {
         System.out.println(instance1);
 
     }
-    //volatile关键字防止jvm指令重排序
-    //1.分配空间
-    //2.初始化
-    //3.设置值
-    private volatile static LazySingleton instance = null; 
+    private volatile static LazySingleton instance = null;
     private LazySingleton() {
     }
     public static LazySingleton getInstance() {
-        //DCL双重检查锁
-        //外部判空防止持有锁阻塞开销
         if (instance == null) {
             synchronized (LazySingleton.class){
                 if (instance==null) {
@@ -47,5 +37,3 @@ public class LazySingleton {
 
 
 }
-
-```
